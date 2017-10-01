@@ -6,7 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @ComponentScan("com.wisely.highlight_spring4.ch1.aop")
-@EnableAspectJAutoProxy //1
+@EnableAspectJAutoProxy //1，开启Spring对AspectJ代理的支持
 public class AopConfig {
 
 }

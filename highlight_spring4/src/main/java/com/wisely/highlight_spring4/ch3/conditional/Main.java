@@ -11,8 +11,8 @@ public class Main {
 		ListService listService = context.getBean(ListService.class);
 		
 		
-		System.out.println(context.getEnvironment().getProperty("os.name") 
-				+ "ÏµÍ³ÏÂµÄÁĞ±íÃüÁîÎª: " 
+		System.out.println(context.getEnvironment().getProperty("os.name")
+				+ "ç³»ç»Ÿä¸‹çš„åˆ—è¡¨å‘½ä»¤ä¸º: " 
 				+ listService.showListCmd());
 		
 		context.close();

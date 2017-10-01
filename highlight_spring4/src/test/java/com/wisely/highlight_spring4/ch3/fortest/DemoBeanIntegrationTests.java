@@ -1,15 +1,7 @@
 package com.wisely.highlight_spring4.ch3.fortest;
 
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-@RunWith(SpringJUnit4ClassRunner.class) //1
+/*@RunWith(SpringJUnit4ClassRunner.class) //1
 @ContextConfiguration(classes = {TestConfig.class}) //2
 @ActiveProfiles("prod") //3
 public class DemoBeanIntegrationTests {
@@ -24,4 +16,4 @@ public class DemoBeanIntegrationTests {
 	}
 
 	
-}
+}*/
