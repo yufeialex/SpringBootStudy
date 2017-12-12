@@ -8,7 +8,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Ch65Application.class)
+@SpringBootTest(classes = Ch65Application.class)
 @WebAppConfiguration
 public class Ch65ApplicationTests {
 

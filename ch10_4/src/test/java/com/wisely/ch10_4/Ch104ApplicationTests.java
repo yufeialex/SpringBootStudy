@@ -23,7 +23,7 @@ import com.wisely.ch10_4.domain.Person;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Ch104Application.class) //1
+@SpringBootTest(classes = Ch104Application.class) //1
 @WebAppConfiguration
 @Transactional //2
 public class Ch104ApplicationTests {
