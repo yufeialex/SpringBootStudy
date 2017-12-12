@@ -9,12 +9,13 @@ import com.wisely.highlight_springmvc4.domain.DemoObj;
 
 @Controller
 public class ConverterController {
-	
-	@RequestMapping(value = "/convert", produces = { "application/x-wisely" }) //1
-    public @ResponseBody DemoObj convert(@RequestBody DemoObj demoObj) {
-		
+
+    @RequestMapping(value = "/convert", produces = {"application/x-wisely"}) //1
+    public @ResponseBody
+    DemoObj convert(@RequestBody DemoObj demoObj) {
+
         return demoObj;
-        
+
     }
 
 }

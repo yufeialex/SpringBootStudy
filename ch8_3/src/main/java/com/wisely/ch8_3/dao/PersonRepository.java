@@ -9,8 +9,8 @@ import com.wisely.ch8_3.domain.Person;
 
 @RepositoryRestResource(path = "people")
 public interface PersonRepository extends JpaRepository<Person, Long> {
-	
-	@RestResource(path = "nameStartsWith", rel = "nameStartsWith")
-	Person findByNameStartsWith(@Param("name")String name);
+
+    @RestResource(path = "nameStartsWith", rel = "nameStartsWith")
+    Person findByNameStartsWith(@Param("name") String name);
 
 }

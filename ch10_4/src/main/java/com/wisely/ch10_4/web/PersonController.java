@@ -14,12 +14,12 @@ import com.wisely.ch10_4.domain.Person;
 @RestController
 @RequestMapping("/person")
 public class PersonController {
-	@Autowired
-	PersonRepository personRepository;
-	
-	@RequestMapping(method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON_VALUE} )
-	public List<Person> findAll(){
-		return personRepository.findAll();
-	}
+    @Autowired
+    PersonRepository personRepository;
+
+    @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<Person> findAll() {
+        return personRepository.findAll();
+    }
 
 }

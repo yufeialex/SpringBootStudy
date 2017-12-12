@@ -27,44 +27,44 @@ import com.wisely.ch10_4.domain.Person;
 @WebAppConfiguration
 @Transactional //2
 public class Ch104ApplicationTests {
-	@Autowired
-	PersonRepository personRepository;
-	
-	MockMvc mvc;
-	
-	@Autowired 
-	WebApplicationContext webApplicationContext;
-	
-	String expectedJson;
-	
-	@Before //3
-	public void setUp() throws JsonProcessingException{ 
-		Person p1 = new Person("wyf");
-		Person p2 = new Person("wisely");
-		personRepository.save(p1);
-		personRepository.save(p2);
-		
-		expectedJson =Obj2Json(personRepository.findAll()); //4
-		mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-		
-		
-	}
-	
-	protected String Obj2Json(Object obj) throws JsonProcessingException{//5
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.writeValueAsString(obj);
-	}
-	
-	@Test
-	public void testPersonController() throws Exception {
-		String uri="/person";
-		MvcResult result = mvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON))
-																.andReturn(); //6
-		int status = result.getResponse().getStatus(); //7
-		String content = result.getResponse().getContentAsString(); //8
-		
-		Assert.assertEquals("错误，正确的返回值为200",200, status); //9
-		Assert.assertEquals("错误，返回值和预期返回值不一致", expectedJson,content); //10
-	}
+    @Autowired
+    PersonRepository personRepository;
+
+    MockMvc mvc;
+
+    @Autowired
+    WebApplicationContext webApplicationContext;
+
+    String expectedJson;
+
+    @Before //3
+    public void setUp() throws JsonProcessingException {
+        Person p1 = new Person("wyf");
+        Person p2 = new Person("wisely");
+        personRepository.save(p1);
+        personRepository.save(p2);
+
+        expectedJson = Obj2Json(personRepository.findAll()); //4
+        mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+
+
+    }
+
+    protected String Obj2Json(Object obj) throws JsonProcessingException {//5
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(obj);
+    }
+
+    @Test
+    public void testPersonController() throws Exception {
+        String uri = "/person";
+        MvcResult result = mvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON))
+                .andReturn(); //6
+        int status = result.getResponse().getStatus(); //7
+        String content = result.getResponse().getContentAsString(); //8
+
+        Assert.assertEquals("错误，正确的返回值为200", 200, status); //9
+        Assert.assertEquals("错误，返回值和预期返回值不一致", expectedJson, content); //10
+    }
 
 }

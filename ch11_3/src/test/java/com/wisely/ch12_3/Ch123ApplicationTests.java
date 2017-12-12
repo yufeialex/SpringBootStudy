@@ -11,8 +11,8 @@ import com.wisely.ch11_3.Ch123Application;
 @SpringApplicationConfiguration(classes = Ch123Application.class)
 public class Ch123ApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }

@@ -21,60 +21,60 @@ import org.springframework.util.StringUtils;
 
 public class CustomerSpecs {
 
-	public static <T> Specification<T> byAuto(final EntityManager entityManager, final T example) { //1
+    public static <T> Specification<T> byAuto(final EntityManager entityManager, final T example) { //1
 
-		final Class<T> type = (Class<T>) example.getClass();//2
+        final Class<T> type = (Class<T>) example.getClass();//2
 
-		return new Specification<T>() {
+        return new Specification<T>() {
 
-			@Override
-			public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-				List<Predicate> predicates = new ArrayList<>(); //3
-				
-				EntityType<T> entity = entityManager.getMetamodel().entity(type);//4
-				
-				for (Attribute<T, ?> attr : entity.getDeclaredAttributes()) {//5
-					Object attrValue = getValue(example, attr); //6
-					if (attrValue != null) {
-						if (attr.getJavaType() == String.class) { //7
-							if (!StringUtils.isEmpty(attrValue)) { //8
-								predicates.add(cb.like(root.get(attribute(entity, attr.getName(), String.class)),
-										pattern((String) attrValue))); //9
-							}
-						} else {
-							predicates.add(cb.equal(root.get(attribute(entity, attr.getName(), attrValue.getClass())),
-									attrValue)); //10
-						}
-					}
+            @Override
+            public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicates = new ArrayList<>(); //3
 
-				}
-				return predicates.isEmpty() ? cb.conjunction() : cb.and(toArray(predicates, Predicate.class));//11
-			}
+                EntityType<T> entity = entityManager.getMetamodel().entity(type);//4
 
-			/**
-			 * 12
-			 */
-			private <T> Object getValue(T example, Attribute<T, ?> attr) {
-				return ReflectionUtils.getField((Field) attr.getJavaMember(), example);
-			}
-			
-			/**
-			 * 13
-			 */
-			private <E, T> SingularAttribute<T, E> attribute(EntityType<T> entity, String fieldName,
-					Class<E> fieldClass) { 
-				return entity.getDeclaredSingularAttribute(fieldName, fieldClass);
-			}
+                for (Attribute<T, ?> attr : entity.getDeclaredAttributes()) {//5
+                    Object attrValue = getValue(example, attr); //6
+                    if (attrValue != null) {
+                        if (attr.getJavaType() == String.class) { //7
+                            if (!StringUtils.isEmpty(attrValue)) { //8
+                                predicates.add(cb.like(root.get(attribute(entity, attr.getName(), String.class)),
+                                        pattern((String) attrValue))); //9
+                            }
+                        } else {
+                            predicates.add(cb.equal(root.get(attribute(entity, attr.getName(), attrValue.getClass())),
+                                    attrValue)); //10
+                        }
+                    }
 
-		};
+                }
+                return predicates.isEmpty() ? cb.conjunction() : cb.and(toArray(predicates, Predicate.class));//11
+            }
 
-	}
-	
-	/**
-	 * 14
-	 */
-	static private String pattern(String str) {
-		return "%" + str + "%";
-	}
+            /**
+             * 12
+             */
+            private <T> Object getValue(T example, Attribute<T, ?> attr) {
+                return ReflectionUtils.getField((Field) attr.getJavaMember(), example);
+            }
+
+            /**
+             * 13
+             */
+            private <E, T> SingularAttribute<T, E> attribute(EntityType<T> entity, String fieldName,
+                                                             Class<E> fieldClass) {
+                return entity.getDeclaredSingularAttribute(fieldName, fieldClass);
+            }
+
+        };
+
+    }
+
+    /**
+     * 14
+     */
+    static private String pattern(String str) {
+        return "%" + str + "%";
+    }
 
 }

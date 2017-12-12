@@ -9,9 +9,9 @@ import com.wisely.highlight_springmvc4.domain.DemoObj;
 @Controller
 public class ContentController {
     @RequestMapping(value = "/getdemo")
-    public String getDemo(Model model){
+    public String getDemo(Model model) {
         DemoObj demoObj = new DemoObj(333l, "WYF");
-        model.addAttribute("demoObj",demoObj);
+        model.addAttribute("demoObj", demoObj);
         return "demoObj";
 
     }

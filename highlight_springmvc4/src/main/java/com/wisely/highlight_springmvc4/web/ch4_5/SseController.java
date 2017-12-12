@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SseController {
-	
-	@RequestMapping(value="/push",produces="text/event-stream") //1
-	public @ResponseBody String push(){
-		 Random r = new Random();
+
+    @RequestMapping(value = "/push", produces = "text/event-stream") //1
+    public @ResponseBody
+    String push() {
+        Random r = new Random();
         try {
-                Thread.sleep(5000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
-                e.printStackTrace();
-        }   
-        return "data:Testing 1,2,3" + r.nextInt() +"\n\n";
-	}
+            e.printStackTrace();
+        }
+        return "data:Testing 1,2,3" + r.nextInt() + "\n\n";
+    }
 
 }

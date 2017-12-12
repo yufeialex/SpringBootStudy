@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
-	
-	    @Autowired
-	    JobLauncher jobLauncher;
 
-	    @Autowired
-	    Job importJob;
-	    public JobParameters   jobParameters;
-	    
-	    @RequestMapping("/read")
-	    public String imp(String fileName) throws Exception{
-	    	
-	        String path = fileName+".csv";
-	        jobParameters = new JobParametersBuilder()
-	                .addLong("time", System.currentTimeMillis())
-	                .addString("input.file.name", path)
-	                .toJobParameters();
-	        jobLauncher.run(importJob,jobParameters);
-	        return "ok";
-	    }
+    @Autowired
+    JobLauncher jobLauncher;
+
+    @Autowired
+    Job importJob;
+    public JobParameters jobParameters;
+
+    @RequestMapping("/read")
+    public String imp(String fileName) throws Exception {
+
+        String path = fileName + ".csv";
+        jobParameters = new JobParametersBuilder()
+                .addLong("time", System.currentTimeMillis())
+                .addString("input.file.name", path)
+                .toJobParameters();
+        jobLauncher.run(importJob, jobParameters);
+        return "ok";
+    }
 
 }
