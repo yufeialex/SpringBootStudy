@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wisely</groupId>
-    <artifactId>spring-boot-starter-hello</artifactId>
+    <artifactId>spring-boot-starter-demoDB</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-boot-starter-hello</name>
+    <name>spring-boot-starter-demoDB</name>
     <url>http://maven.apache.org</url>
 
     <properties>

@@ -31,7 +31,7 @@
 		
 		<dependency>
 			<groupId>com.wisely</groupId>
-			<artifactId>spring-boot-starter-hello</artifactId>
+			<artifactId>spring-boot-starter-demoDB</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		
