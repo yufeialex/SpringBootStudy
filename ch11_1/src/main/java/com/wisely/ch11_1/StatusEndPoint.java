@@ -8,26 +8,26 @@ import org.springframework.context.ApplicationContextAware;
 
 
 @ConfigurationProperties(prefix = "endpoints.status", ignoreUnknownFields = false) //1
-public class StatusEndPoint extends AbstractEndpoint<String> implements ApplicationContextAware{//2
-	
-	ApplicationContext context;
+public class StatusEndPoint extends AbstractEndpoint<String> implements ApplicationContextAware {//2
 
-	public StatusEndPoint() {
-		super("status");
-	}
+    ApplicationContext context;
 
-	@Override
-	public String invoke() { //3
-		StatusService statusService = context.getBean(StatusService.class);
-		
-		return "The Current Status  is :"+statusService.getStatus();
-	}
+    public StatusEndPoint() {
+        super("status");
+    }
 
-	@Override
-	public void setApplicationContext(ApplicationContext arg0) throws BeansException {
-		this.context = arg0;
-		
-	}
+    @Override
+    public String invoke() { //3
+        StatusService statusService = context.getBean(StatusService.class);
+
+        return "The Current Status  is :" + statusService.getStatus();
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext arg0) throws BeansException {
+        this.context = arg0;
+
+    }
 
 
 }

@@ -10,20 +10,20 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
 import static com.wisely.specs.CustomerSpecs.*;
 
-public class CustomRepositoryImpl <T, ID extends Serializable> 
-					extends SimpleJpaRepository<T, ID>  implements CustomRepository<T,ID> {
-	
-	private final EntityManager entityManager;
-	
-	public CustomRepositoryImpl(Class<T> domainClass, EntityManager entityManager) {
-		super(domainClass, entityManager);
-		this.entityManager = entityManager;
-	}
+public class CustomRepositoryImpl<T, ID extends Serializable>
+        extends SimpleJpaRepository<T, ID> implements CustomRepository<T, ID> {
 
-	@Override
-	public Page<T> findByAuto(T example, Pageable pageable) {
-		return findAll(byAuto(entityManager, example),pageable);
-	}
+    private final EntityManager entityManager;
+
+    public CustomRepositoryImpl(Class<T> domainClass, EntityManager entityManager) {
+        super(domainClass, entityManager);
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    public Page<T> findByAuto(T example, Pageable pageable) {
+        return findAll(byAuto(entityManager, example), pageable);
+    }
 
 
 }

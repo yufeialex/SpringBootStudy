@@ -9,6 +9,6 @@ public class Ch861Application {
     public static void main(String[] args) {
         SpringApplication.run(Ch861Application.class, args);
     }
-    
-	
+
+
 }

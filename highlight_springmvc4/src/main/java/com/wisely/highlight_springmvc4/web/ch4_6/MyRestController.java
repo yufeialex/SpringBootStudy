@@ -9,13 +9,14 @@ import com.wisely.highlight_springmvc4.service.DemoService;
 
 //@RestController
 public class MyRestController {
-	
-	@Autowired
-	DemoService demoService;
-	
-	@RequestMapping(value = "/testRest" ,produces="text/plain;charset=UTF-8")
-	public @ResponseBody String testRest(){
-		return demoService.saySomething();
-	}
+
+    @Autowired
+    DemoService demoService;
+
+    @RequestMapping(value = "/testRest", produces = "text/plain;charset=UTF-8")
+    public @ResponseBody
+    String testRest() {
+        return demoService.saySomething();
+    }
 
 }

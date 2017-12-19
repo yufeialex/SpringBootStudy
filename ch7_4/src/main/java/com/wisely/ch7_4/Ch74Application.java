@@ -9,7 +9,7 @@ public class Ch74Application {
     public static void main(String[] args) {
         SpringApplication.run(Ch74Application.class, args);
     }
-    
+
 //    @Component
 //    public static class CustomServletContainer implements EmbeddedServletContainerCustomizer{
 //
@@ -21,7 +21,7 @@ public class Ch74Application {
 //		}
 //    	
 //    }
-    
+
 //    @Bean
 //    public EmbeddedServletContainerFactory servletContainer() {
 //    TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
@@ -30,8 +30,8 @@ public class Ch74Application {
 //    factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404.html"));
 //    return factory;
 //    }
-    
-    
+
+
 //    @Bean
 //    public EmbeddedServletContainerFactory servletContainer() {
 //      TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {

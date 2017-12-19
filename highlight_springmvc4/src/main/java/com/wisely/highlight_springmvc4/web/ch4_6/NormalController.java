@@ -9,15 +9,14 @@ import com.wisely.highlight_springmvc4.service.DemoService;
 
 //@Controller
 public class NormalController {
-	@Autowired
-	DemoService demoService;
-	
+    @Autowired
+    DemoService demoService;
 
-	
-	@RequestMapping("/normal")
-	public  String testPage(Model model){
-		model.addAttribute("msg", demoService.saySomething());
-		return "page";
-	}
+
+    @RequestMapping("/normal")
+    public String testPage(Model model) {
+        model.addAttribute("msg", demoService.saySomething());
+        return "page";
+    }
 
 }

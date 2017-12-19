@@ -11,14 +11,14 @@ import com.wisely.support.CustomRepositoryFactoryBean;
 @SpringBootApplication
 @EnableJpaRepositories(repositoryFactoryBeanClass = CustomRepositoryFactoryBean.class)
 public class Ch82Application {
-	@Autowired
-	PersonRepository personRepository;
-	
-	
+    @Autowired
+    PersonRepository personRepository;
+
+
     public static void main(String[] args) {
         SpringApplication.run(Ch82Application.class, args);
-        
+
     }
-    
- 
+
+
 }

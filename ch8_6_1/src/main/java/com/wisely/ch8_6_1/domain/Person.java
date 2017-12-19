@@ -9,51 +9,51 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document //1
 public class Person {
-	@Id
-	private String id;
-	private String name;
-	private Integer age;
-	@Field("locs")
-	private Collection<Location> locations =  new LinkedHashSet<Location>();
-	
+    @Id
+    private String id;
+    private String name;
+    private Integer age;
+    @Field("locs")
+    private Collection<Location> locations = new LinkedHashSet<Location>();
 
-	public Person(String name, Integer age) {
-		super();
-		this.name = name;
-		this.age = age;
-	}
 
-	public String getId() {
-		return id;
-	}
+    public Person(String name, Integer age) {
+        super();
+        this.name = name;
+        this.age = age;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Integer getAge() {
-		return age;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+    public Integer getAge() {
+        return age;
+    }
 
-	public Collection<Location> getLocations() {
-		return locations;
-	}
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
-	public void setLocations(Collection<Location> locations) {
-		this.locations = locations;
-	}
-	
+    public Collection<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Collection<Location> locations) {
+        this.locations = locations;
+    }
+
 
 }

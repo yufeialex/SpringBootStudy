@@ -13,38 +13,42 @@ import com.wisely.highlight_springmvc4.domain.DemoObj;
 @RequestMapping("/anno") //2
 public class DemoAnnoController {
 
-	@RequestMapping(produces = "text/plain;charset=UTF-8")	// 3
-	public @ResponseBody String index(HttpServletRequest request) { // 4
-		return "url:" + request.getRequestURL() + " can access";
-	}
+    @RequestMapping(produces = "text/plain;charset=UTF-8")    // 3
+    public @ResponseBody
+    String index(HttpServletRequest request) { // 4
+        return "url:" + request.getRequestURL() + " can access";
+    }
 
-	@RequestMapping(value = "/pathvar/{str}", produces = "text/plain;charset=UTF-8")// 5
-	public @ResponseBody String demoPathVar(@PathVariable String str, //3
-			HttpServletRequest request) {
-		return "url:" + request.getRequestURL() + " can access,str: " + str;
-	}
+    @RequestMapping(value = "/pathvar/{str}", produces = "text/plain;charset=UTF-8")// 5
+    public @ResponseBody
+    String demoPathVar(@PathVariable String str, //3
+                       HttpServletRequest request) {
+        return "url:" + request.getRequestURL() + " can access,str: " + str;
+    }
 
-	@RequestMapping(value = "/requestParam", produces = "text/plain;charset=UTF-8") //6
-	public @ResponseBody String passRequestParam(Long id,
-			HttpServletRequest request) {
-		
-		return "url:" + request.getRequestURL() + " can access,id: " + id;
+    @RequestMapping(value = "/requestParam", produces = "text/plain;charset=UTF-8") //6
+    public @ResponseBody
+    String passRequestParam(Long id,
+                            HttpServletRequest request) {
 
-	}
+        return "url:" + request.getRequestURL() + " can access,id: " + id;
 
-	@RequestMapping(value = "/obj", produces = "application/json;charset=UTF-8")//7
-	@ResponseBody //8
-	public String passObj(DemoObj obj, HttpServletRequest request) {
-		
-		 return "url:" + request.getRequestURL() 
-		 			+ " can access, obj id: " + obj.getId()+" obj name:" + obj.getName();
+    }
 
-	}
+    @RequestMapping(value = "/obj", produces = "application/json;charset=UTF-8")//7
+    @ResponseBody //8
+    public String passObj(DemoObj obj, HttpServletRequest request) {
 
-	@RequestMapping(value = { "/name1", "/name2" }, produces = "text/plain;charset=UTF-8")//9
-	public @ResponseBody String remove(HttpServletRequest request) {
-		
-		return "url:" + request.getRequestURL() + " can access";
-	}
+        return "url:" + request.getRequestURL()
+                + " can access, obj id: " + obj.getId() + " obj name:" + obj.getName();
+
+    }
+
+    @RequestMapping(value = {"/name1", "/name2"}, produces = "text/plain;charset=UTF-8")//9
+    public @ResponseBody
+    String remove(HttpServletRequest request) {
+
+        return "url:" + request.getRequestURL() + " can access";
+    }
 
 }

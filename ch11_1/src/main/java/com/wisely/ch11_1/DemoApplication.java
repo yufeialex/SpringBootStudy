@@ -11,21 +11,22 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class DemoApplication {
-	@Autowired
-	StatusService statusService;
+    @Autowired
+    StatusService statusService;
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
-    
+
     @Bean
     public Endpoint<String> status() {
-    	Endpoint<String> status =  new StatusEndPoint();
-    	return status;
+        Endpoint<String> status = new StatusEndPoint();
+        return status;
     }
+
     @RequestMapping("/change")
-    public String changeStatus(String status){
-    	statusService.setStatus(status);
-    	return "OK";
+    public String changeStatus(String status) {
+        statusService.setStatus(status);
+        return "OK";
     }
 }

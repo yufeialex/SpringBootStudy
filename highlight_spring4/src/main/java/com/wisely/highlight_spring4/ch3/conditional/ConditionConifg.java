@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ConditionConifg {
-	@Bean
+    @Bean
     @Conditional(WindowsCondition.class) //1
     public ListService windowsListService() {
         return new WindowsListService();
