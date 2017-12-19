@@ -1,10 +1,8 @@
 package com.wisely.highlight_spring4.ch1.javaconfig;
 
-import com.wisely.highlight_spring4.ch1.javaconfig.FunctionService;
-
-//1
+// 这里没有加注解
 public class UseFunctionService {
-    //2
+    // 这里没有加注解
     FunctionService functionService;
 
     public void setFunctionService(FunctionService functionService) {
