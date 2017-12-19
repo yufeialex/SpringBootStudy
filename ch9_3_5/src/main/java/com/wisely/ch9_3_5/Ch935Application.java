@@ -11,13 +11,13 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Ch935Application implements CommandLineRunner {
     @Autowired
-    RabbitTemplate rabbitTemplate; //1
+    RabbitTemplate rabbitTemplate; //1 注入springboot为我们配置好的RabbitTemplate
 
     public static void main(String[] args) {
         SpringApplication.run(Ch935Application.class, args);
     }
 
-    @Bean //2
+    @Bean //2 定义目的地，即队列
     public Queue wiselyQueue() {
         return new Queue("my-queue");
     }
@@ -25,6 +25,6 @@ public class Ch935Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        rabbitTemplate.convertAndSend("my-queue", "来自RabbitMQ的问候"); //3
+        rabbitTemplate.convertAndSend("my-queue", "来自RabbitMQ的问候"); //3 向队列发送信息
     }
 }
