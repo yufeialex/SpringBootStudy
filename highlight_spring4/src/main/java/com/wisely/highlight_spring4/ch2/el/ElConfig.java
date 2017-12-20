@@ -16,31 +16,32 @@ import org.springframework.core.io.Resource;
 @PropertySource("classpath:com/wisely/highlight_spring4/ch2/el/test.properties")//7
 public class ElConfig {
 
-    @Value("I Love You!") //1
+    @Value("I Love You!") //1 注入普通字符串
     private String normal;
 
-    @Value("#{systemProperties['os.name']}") //2
+    @Value("#{systemProperties['os.name']}") //2 注入操作系统属性
     private String osName;
 
-    @Value("#{ T(java.lang.Math).random() * 100.0 }") //3
+    @Value("#{ T(java.lang.Math).random() * 100.0 }") //3 注入表达式结果
     private double randomNumber;
 
-    @Value("#{demoService.another}") //4
+    @Value("#{demoService.another}") //4 注入其他Bean的属性
     private String fromAnother;
 
-    @Value("classpath:com/wisely/highlight_spring4/ch2/el/test.txt") //5
+    @Value("classpath:com/wisely/highlight_spring4/ch2/el/test.txt") //5 注入文件资源
     private Resource testFile;
 
-    @Value("http://www.baidu.com") //6
+    @Value("http://www.baidu.com") //6 注入网址资源
     private Resource testUrl;
 
-    @Value("${book.name}") //7
+    @Value("${book.name}") //7 注入配置文件
+    // 其实需要用@PropertySource指定文件地址
     private String bookName;
 
     @Autowired
-    private Environment environment; //7
+    private Environment environment; //7 注入配置文件内容的另一种方法
 
-    @Bean //7
+    @Bean //7 为了能够注入配置文件进行的配置
     public static PropertySourcesPlaceholderConfigurer propertyConfigure() {
         return new PropertySourcesPlaceholderConfigurer();
     }
