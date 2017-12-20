@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 public class PrePostConfig {
 
     @Bean(initMethod = "init", destroyMethod = "destroy")
-        //1
     BeanWayService beanWayService() {
         return new BeanWayService();
     }

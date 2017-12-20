@@ -4,7 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 public class JSR250WayService {
-    @PostConstruct //1
+    @PostConstruct
     public void init() {
         System.out.println("jsr250-init-method");
     }
@@ -14,7 +14,7 @@ public class JSR250WayService {
         System.out.println("初始化构造函数-JSR250WayService");
     }
 
-    @PreDestroy //2
+    @PreDestroy
     public void destroy() {
         System.out.println("jsr250-destory-method");
     }
