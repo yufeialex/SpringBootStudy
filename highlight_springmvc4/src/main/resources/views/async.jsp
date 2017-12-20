@@ -14,12 +14,12 @@
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript">
 
-	deferred();//1
+	deferred();//1 页面打开后就向后台发送请求
 	
 	function deferred(){
 	    $.get('defer',function(data){
-	        console.log(data); //2
-	        deferred(); //3
+	        console.log(data);
+	        deferred(); //3 递归请求
 	    });
 	}
 

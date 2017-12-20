@@ -13,9 +13,9 @@
     function req(){
         $.ajax({
             url: "convert",
-            data: "1-wangyunfei", //1
+            data: "1-wangyunfei", //1 要用-隔开
             type:"POST",
-            contentType:"application/x-wisely", //2
+            contentType:"application/x-wisely", //2 自定义的类型
             success: function(data){
                 $("#resp").html(data);
             }

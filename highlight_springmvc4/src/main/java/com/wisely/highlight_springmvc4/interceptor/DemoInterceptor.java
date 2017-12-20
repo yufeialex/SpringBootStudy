@@ -1,15 +1,18 @@
 package com.wisely.highlight_springmvc4.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class DemoInterceptor extends HandlerInterceptorAdapter {//1
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+// 也可以实现HandlerInterceptor接口来自定义
+// 计算每次请求的处理时间
+public class DemoInterceptor extends HandlerInterceptorAdapter {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, //2
+    // 请求前
+    public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
         long startTime = System.currentTimeMillis();
         request.setAttribute("startTime", startTime);
@@ -17,7 +20,8 @@ public class DemoInterceptor extends HandlerInterceptorAdapter {//1
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, //3
+    // 请求后
+    public void postHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
         long startTime = (Long) request.getAttribute("startTime");

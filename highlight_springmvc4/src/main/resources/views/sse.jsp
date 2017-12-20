@@ -16,10 +16,10 @@
 <script type="text/javascript">
 
 
- if (!!window.EventSource) { //1
+ if (!!window.EventSource) { //1 EventSource是SSE的客户端
 	   var source = new EventSource('push'); 
 	   s='';
-	   source.addEventListener('message', function(e) {//2
+	   source.addEventListener('message', function(e) {//2 添加SSE客户端监听，在此获得服务器端推送的消息
 		   s+=e.data+"<br/>";
 		   $("#msgFrompPush").html(s);
 	     

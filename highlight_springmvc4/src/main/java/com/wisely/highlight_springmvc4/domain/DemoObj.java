@@ -4,6 +4,7 @@ public class DemoObj {
     private Long id;
     private String name;
 
+    // jackson转换一定要有空构造函数
     public DemoObj() {
         super();
     }

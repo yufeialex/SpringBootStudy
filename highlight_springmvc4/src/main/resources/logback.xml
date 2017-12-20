@@ -13,7 +13,8 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework.web" level="DEBUG"/> <!-- 1 -->
+    <!-- 这个包下的类日志登记设置为DEBUG，因为开发时候经常出现和参数类型相关的4XX错误，设置此项能看到更详细的错误信息 -->
+    <logger name="org.springframework.web" level="DEBUG"/>
     <root level="info">
         <appender-ref ref="console"/>
     </root>

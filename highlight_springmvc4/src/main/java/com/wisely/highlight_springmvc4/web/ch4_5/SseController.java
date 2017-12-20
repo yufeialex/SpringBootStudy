@@ -1,17 +1,17 @@
 package com.wisely.highlight_springmvc4.web.ch4_5;
 
-import java.util.Random;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Random;
+
 @Controller
 public class SseController {
 
-    @RequestMapping(value = "/push", produces = "text/event-stream") //1
-    public @ResponseBody
-    String push() {
+    @RequestMapping(value = "/push", produces = "text/event-stream") //1 服务器端SSE支持的媒体类型
+    // 每5秒向浏览器推送随机消息
+    public @ResponseBody String push() {
         Random r = new Random();
         try {
             Thread.sleep(5000);
