@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 @Component //2 本切面被Spring管理
 public class LogAspect {
 
-    @Pointcut("@annotation(com.wisely.highlight_spring4.ch1.aop.Action)") //3 声明切点；切的标志就是注解
+    @Pointcut("@annotation(com.wisely.highlight_spring4.ch1.aop.WithDoc)") //3 声明切点；切的标志就是注解
     public void annotationPointCut() {
     }
 
@@ -24,8 +24,14 @@ public class LogAspect {
     public void after(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        Action action = method.getAnnotation(Action.class);
-        System.out.println("注解式拦截 " + action.name()); //5 通过反射可以获得注解上的属性，然后做日志记录相关的操作，下面类似
+        WithDoc withDoc = method.getAnnotation(WithDoc.class);
+        System.out.println("注解式拦截 " + withDoc.name()); //5 通过反射可以获得注解上的属性，然后做日志记录相关的操作，下面类似
+    }
+
+    @After("@annotation(withDoc)") //4，直接写规则,与某一个参数绑定
+    // 每一个被拦截的地方就叫连接点，JoinPoint，所以这里的参数就是被切的方法
+    public void after1(WithDoc withDoc) {
+        System.out.println("注解式拦截2 " + withDoc.name()); //5 通过反射可以获得注解上的属性，然后做日志记录相关的操作，下面类似
     }
 
     @Before("execution(* com.wisely.highlight_spring4.ch1.aop.DemoMethodService.*(..))") //6 直接写拦截规则
