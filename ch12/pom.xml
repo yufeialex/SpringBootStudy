@@ -15,7 +15,7 @@
         <module>discovery</module>
         <module>ui</module>
         <module>person</module>
-		<module>some</module>
+        <module>some</module>
         <module>monitor</module>
     </modules>
 
@@ -77,5 +77,5 @@
             </plugins>
         </pluginManagement>
     </build>
-    
+
 </project>
