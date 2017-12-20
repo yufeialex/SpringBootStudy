@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service
-public class AwareService implements BeanNameAware, ResourceLoaderAware {//1
+//1 实现这两个接口可以有Bean名称和资源加载的服务
+public class AwareService implements BeanNameAware, ResourceLoaderAware {
 
     private String beanName;
     private ResourceLoader loader;

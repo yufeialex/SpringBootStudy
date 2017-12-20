@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConditionConifg {
     @Bean
-    @Conditional(WindowsCondition.class) //1
+    @Conditional(WindowsCondition.class) //1 继承条件类，如果返回真值就实例化
     public ListService windowsListService() {
         return new WindowsListService();
     }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AsyncTaskService {
 
-    @Async //1
+    @Async // 如果加在类上，所有方法就都是异步的
     public void executeAsyncTask(Integer i) {
         System.out.println("执行异步任务: " + i);
     }
