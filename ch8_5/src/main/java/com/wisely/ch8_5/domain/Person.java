@@ -1,13 +1,9 @@
 package com.wisely.ch8_5.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
+//@Entity
 public class Person {
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     private Long id;
 
     private String name;
