@@ -1,12 +1,12 @@
 package com.wisely.ui.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wisely.ui.domain.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PersonHystrixService {
@@ -14,7 +14,7 @@ public class PersonHystrixService {
     @Autowired
     PersonService personService;
 
-    @HystrixCommand(fallbackMethod = "fallbackSave") //1
+    @HystrixCommand(fallbackMethod = "fallbackSave") //1 方法失败时候调用后备方法
     public List<Person> save(String name) {
         return personService.save(name);
     }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 @RestController
 public class SomeApplication {
-    @Value("${my.message}") //1
+    @Value("${my.message}") //1 这个值来自Config Server
     private String message;
 
     @RequestMapping(value = "/getsome")

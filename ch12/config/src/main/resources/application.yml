@@ -3,7 +3,7 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/config #1
+          search-locations: classpath:/config #1 其他应用所需要的配置文件的位置；应用名+profile.yml
 
 server:
   port: 8888
