@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-// ÏÂÃæµÄ×¢½âÊÇÒ»¶¨ÒªµÄ£¬¿ªÆô×¢½âÅäÖÃ
+// ä¸‹é¢çš„æ³¨è§£æ˜¯ä¸€å®šè¦çš„ï¼Œå¼€å¯æ³¨è§£é…ç½®
 @ComponentScan("com.wisely.highlight_spring4.ch2.scope")
 public class ScopeConfig {
 
