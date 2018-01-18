@@ -15,14 +15,14 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-public class TimeAspect {
+public class MyTimeAspect {
 
-    private static final Logger logger = LoggerFactory.getLogger(TimeAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyTimeAspect.class);
 
     // 一分钟，即60000ms
     private static final long ONE_MINUTE = 60000;
 
-    @Pointcut("execution(* com.wisely.highlight_springmvc4.total.service.*.*(..))")
+    @Pointcut("execution(* com.wisely.highlight_springmvc4.service.*.*(..))")
     public void pointCut1() {}
 
     @Around("pointCut1()")

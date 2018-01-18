@@ -1,16 +1,8 @@
 package com.wisely.highlight_springmvc4;
 
 
-import com.wisely.highlight_springmvc4.controller.CompanyController;
-import com.wisely.highlight_springmvc4.controller.SeriesController;
-import com.wisely.highlight_springmvc4.controller.StarController;
-import com.wisely.highlight_springmvc4.service.ListService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         Logger logger = LoggerFactory.getLogger(Main.class);
 
@@ -46,5 +38,5 @@ public class Main {
 
 //不加的时候能看到定时任务，加上了能看到销毁函数的打印
 //        context.close();
-    }
+    }*/
 }

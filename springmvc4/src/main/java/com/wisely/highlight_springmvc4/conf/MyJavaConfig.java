@@ -4,15 +4,16 @@ package com.wisely.highlight_springmvc4.conf;
 import com.wisely.highlight_springmvc4.condition.LinuxCondition;
 import com.wisely.highlight_springmvc4.condition.WindowsCondition;
 import com.wisely.highlight_springmvc4.controller.CompanyController;
-import com.wisely.highlight_springmvc4.controller.SeriesController;
-import com.wisely.highlight_springmvc4.service.*;
+import com.wisely.highlight_springmvc4.service.CompanyService;
+import com.wisely.highlight_springmvc4.service.LinuxListService;
+import com.wisely.highlight_springmvc4.service.ListService;
+import com.wisely.highlight_springmvc4.service.WindowsListService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 @Configuration // 这里不用@ComponentScan，不用注解配置，用java配置
-public class JavaConfig {
+public class MyJavaConfig {
 
     @Bean
     public CompanyService companyService() {
@@ -20,7 +21,7 @@ public class JavaConfig {
     }
 
     // 注意Bean注解这两个属性；init和destroy是Bean的方法名
-    @Bean(initMethod = "init", destroyMethod = "destroy")
+   /* @Bean(initMethod = "init", destroyMethod = "destroy")
     @Profile("dev")
     public SeriesService devSeriesService() {
         return new SeriesService("from development profile");
@@ -31,7 +32,7 @@ public class JavaConfig {
     @Profile("prod")
     public SeriesService prodSeriesService() {
         return new SeriesService("from production profile");
-    }
+    }*/
 
     @Bean
     public CompanyController useFunctionService2() {
@@ -40,13 +41,13 @@ public class JavaConfig {
         return companyController;
     }
 
-	@Bean
+	/*@Bean
     //注入方式2，如果某个Bean已经在容器中，可以作为参数放入另一个Bean的声明方法中
 	public SeriesController useFunctionService3(SeriesService seriesService){
 		SeriesController seriesController = new SeriesController();
 		seriesController.setFunctionService(seriesService);
 		return seriesController;
-	}
+	}*/
 
     @Bean
     @Conditional(WindowsCondition.class) //1 继承条件类，如果返回真值就实例化

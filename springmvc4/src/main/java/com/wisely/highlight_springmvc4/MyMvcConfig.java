@@ -22,10 +22,10 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 @Configuration
-@EnableWebMvc // 1 会开启一些默认配置，如一些ViewResolver或者MessageConverter等
+@EnableWebMvc           // 会开启一些默认配置，如一些ViewResolver或者MessageConverter等
 @EnableAspectJAutoProxy // 开启Spring对AspectJ代理的支持
-@EnableAsync // 开启异步任务
-@EnableScheduling // 开启对计划任务的支持
+@EnableAsync            // 开启异步任务
+@EnableScheduling       // 开启对计划任务的支持
 @ComponentScan("com.wisely.highlight_springmvc4")
 public class MyMvcConfig extends WebMvcConfigurerAdapter implements AsyncConfigurer {
 
@@ -46,9 +46,8 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter implements AsyncConfigu
                 .addResourceLocations("classpath:/assets/"); // 这是指文件放置的目录
     }
 
-//    --拦截器--
     @Bean
-    // 类似Servlet的filter
+    // 拦截器，类似Servlet的filter
     public DemoInterceptor demoInterceptor() {
         return new DemoInterceptor();
     }
@@ -96,7 +95,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter implements AsyncConfigu
 
 
     @Override
-    public Executor getAsyncExecutor() {//2 重写
+    public Executor getAsyncExecutor() {    // 重写
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         taskExecutor.setCorePoolSize(5);
         taskExecutor.setMaxPoolSize(10);
@@ -109,6 +108,5 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter implements AsyncConfigu
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
         return null;
     }
-
 
 }

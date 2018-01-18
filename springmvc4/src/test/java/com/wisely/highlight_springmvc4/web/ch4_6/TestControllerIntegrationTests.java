@@ -1,30 +1,12 @@
 package com.wisely.highlight_springmvc4.web.ch4_6;
 
 
-import com.wisely.highlight_springmvc4.MyMvcConfig;
-import com.wisely.highlight_springmvc4.service.DemoService;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpSession;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {MyMvcConfig.class})
-@WebAppConfiguration("src/main/resources") //1 注解在类上，声明加载的ApplicationContext是一个WebApplication；
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = {MyMvcConfig.class})
+//@WebAppConfiguration("src/main/resources") //1 注解在类上，声明加载的ApplicationContext是一个WebApplication；
                                            // 属性指定的是web资源的位置，默认为src/main/webapp，这里做了修改
 public class TestControllerIntegrationTests {
-    private MockMvc mockMvc; //2 模拟MVC对象
+/*    private MockMvc mockMvc; //2 模拟MVC对象
 
     @Autowired
     private DemoService demoService;//3
@@ -60,6 +42,6 @@ public class TestControllerIntegrationTests {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("text/plain;charset=UTF-8"))//14
                 .andExpect(content().string(demoService.saySomething()));//15
-    }
+    }*/
 
 }
