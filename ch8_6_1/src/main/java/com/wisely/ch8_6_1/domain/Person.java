@@ -1,19 +1,19 @@
 package com.wisely.ch8_6_1.domain;
 
-import java.util.Collection;
-import java.util.LinkedHashSet;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document //1
+import java.util.Collection;
+import java.util.LinkedHashSet;
+
+@Document //1 映射领域模型和MongoDB的文档
 public class Person {
     @Id
     private String id;
     private String name;
     private Integer age;
-    @Field("locs")
+    @Field("locs") // 在文档中的名称为locs
     private Collection<Location> locations = new LinkedHashSet<Location>();
 
 
